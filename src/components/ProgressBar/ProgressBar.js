@@ -21,11 +21,13 @@ const SIZES = {
 
 const ProgressBar = ({ value, size }) => {
   const boundedValue = Math.max(0, Math.min(100, value));
-  const sizeStyles = SIZES[size];
   const styles = SIZES[size];
   return <Wrapper style={styles}>
     <BarContainer>
       <CurrentBar value={boundedValue} aria-valuenow={boundedValue} aria-valuemin="0" aria-valuemax="100">
+        <VisuallyHidden>
+          Current Progress
+        </VisuallyHidden>
       </CurrentBar>
     </BarContainer>
   </Wrapper>;
